@@ -14,7 +14,17 @@ const forecast = (latitude, longitude, callback) => {
     } else if (body.message) {
       callback("Unable to find location", undefined);
     } else {
-      callback(undefined, "Currently " + body.main.temp + " Celcius Now !");
+      callback(
+        undefined,
+        "Currently " +
+          body.main.temp +
+          " Celcius  Now ! Minimum Temperature: " +
+          body.main.temp_min +
+          " Maximum Temperature: " +
+          body.main.temp_max +
+          " Weather: " +
+          body.weather[0].description
+      );
     }
   });
 };
